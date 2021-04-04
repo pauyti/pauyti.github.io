@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel="shortcut icon" href="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-19/s150x150/100040620_2594647330782960_8486775842691612672_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_ohc=s_YJWjzqb0oAX-MhKJ_&edm=ABfd0MgAAAAA&ccb=7-4&oh=69586cb674e1d844c339c547135a8246&oe=608E8E4B&_nc_sid=7bff83">
+		<title>Pauyti</title>
+		<style>
+			button{
+				cursor:pointer;
+			}
+			.a_btn{
+				text-decoration:none;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="height:630px;">
+			<div style="position:absolute;left:0;right:0;top:0;height:630px;background-position:center center;background-size:cover;border:1px solid black;background-image:url('https://monfortinogastrobar.com/wp-content/uploads/2021/01/piano-monfortino.jpg');">
+				<div style="float:right;">
+					<div style="float:right;width:15px;"></div>
+					<h1 style="color:white;float:left;">Pauyti</h1>
+				</div>
+				<div style="margin:auto;width:460px;">
+					<div style="height:220px;"></div>
+					<div style="border:4px solid;border-color:white transparent white transparent;text-align:center;">
+						<h1 style="color:white;font-size:60px;">Pauyti</h1>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div style="height:10px;"></div>
+		<div id="menu"></div>
+		<div id="publis" style="margin:auto;width:810px;">
+			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/167407336_184285270021773_1301301769135533471_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=gE0hN0r7OoAAX-k9E5p&edm=AP_V10EAAAAA&ccb=7-4&oh=5ec477f0916bd83f3d83ca12e0989da8&oe=608EF81D&_nc_sid=4f375e">
+			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/164153683_119970750111373_6592114363203900680_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=101&_nc_ohc=Yd03m_CTUG4AX_QOUvT&edm=AP_V10EAAAAA&ccb=7-4&oh=2c8b899bb7d7213b608eb83bb2b3a272&oe=608FAB08&_nc_sid=4f375e">
+			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/fr/e15/s1080x1080/164736659_188144682891861_6143607071404242014_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=7RtUPywhQL0AX8rMnrM&edm=AP_V10EAAAAA&ccb=7-4&oh=7d7b6e45ed8dd54bee79daa887c8fcdc&oe=608E64F0&_nc_sid=4f375e">
+			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/161700659_482937119563388_7467860580296586611_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=2nKaqOGQaowAX9SglFB&edm=AP_V10EAAAAA&ccb=7-4&oh=2d3d7809bd16e1bde9c4a2b9fac61707&oe=609023D2&_nc_sid=4f375e">
+		</div>
+		<script type="text/javascript">
+			var menu=document.getElementById("menu");
+			var xhr=new XMLHttpRequest();
+			xhr.onload=function(){
+				var response=xhr.response;
+				menu.innerHTML=response;
+			};
+			xhr.open("GET","https://pauyti.github.io/menu.txt",true);
+			xhr.send();
+		</script>
+		<!-- Go to www.addthis.com/dashboard to customize your tools -->
+		<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6069ec58c4d9d357"></script>
+	</body>
+</html>
