@@ -14,6 +14,14 @@
 			#ventas img{
 				cursor:pointer;
 			}
+			#main2{
+				margin:auto;
+				z-index:100;
+				position:fixed;
+				display:none;
+				left:0;top:0;right:0;
+				background-color:gray;
+			}
 			form input{
 				width:400px;
 				height:30px;
@@ -48,6 +56,32 @@
 		</style>
 	</head>
 	<body>
+		<div id="main2">
+			<img width="600px" id="img_main2">
+			<form name="submit-form" id="form1" style="text-align:center;float:right;">
+				<div style="height:40px;"></div>
+				<input type="hidden" name="formID" value="210954453517053">
+				<input type="hidden" id="JWTContainer" value="">
+				<input type="hidden" id="cardinalOrderNumber" value="">
+				<div>
+					<input name="q7_nombreY" placeholder="Nombre" type="text" required>
+				</div>
+				<div>
+					<input name="q4_email" placeholder="Email" type="email" required>
+				</div>
+				<div>
+					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
+				</div>
+				<div>
+					<button type="button" onclick="main2.style.display='none';">Cancelar</button>
+					<button type="submit">Enviar</button>
+				</div>
+				<input name="q6_src" placeholder="src" type="text" hidden>
+				<input type="text" name="website" value="" hidden>
+				<input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="210954453517053-210954453517053">
+				<input type="hidden" name="event_id" value="1617724352942_210954453517053_xgUtTpd">
+			</form>
+		</div>
 		<div id="main1">
 			<div style="height:630px;">
 				<div style="position:absolute;left:0;right:0;top:0;height:630px;background-position:center center;background-size:cover;border:1px solid black;background-image:url('https://monfortinogastrobar.com/wp-content/uploads/2021/01/piano-monfortino.jpg');">
@@ -77,31 +111,6 @@
 				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/161700659_482937119563388_7467860580296586611_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=2nKaqOGQaowAX9SglFB&edm=AP_V10EAAAAA&ccb=7-4&oh=2d3d7809bd16e1bde9c4a2b9fac61707&oe=609023D2&_nc_sid=4f375e">
 			</div>
 		</div>
-		<div id="main2" style="margin:auto;width:720px;display:none;">
-			<img width="700px" id="img_main2">
-			<form name="submit-form" id="form1" style="text-align:center;">
-				<div style="height:40px;"></div>
-				<input type="hidden" name="formID" value="210954453517053">
-				<input type="hidden" id="JWTContainer" value="">
-				<input type="hidden" id="cardinalOrderNumber" value="">
-				<div>
-					<input name="q7_nombreY" placeholder="Nombre" type="text" required>
-				</div>
-				<div>
-					<input name="q4_email" placeholder="Email" type="email" required>
-				</div>
-				<div>
-					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
-				</div>
-				<div>
-					<button type="submit">Enviar</button>
-				</div>
-				<input name="q6_src" placeholder="src" type="text" hidden>
-				<input type="text" name="website" value="" hidden>
-				<input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="210954453517053-210954453517053">
-				<input type="hidden" name="event_id" value="1617724352942_210954453517053_xgUtTpd">
-			</form>
-		</div>
 		<script type="text/javascript">
 			var menu=document.getElementById("menu");
 			var main1=document.getElementById("main1");
@@ -116,25 +125,20 @@
 			xhr.open("GET","https://pauyti.github.io/menu.txt",true);
 			xhr.send();
 			var href=document.location.href;
-			if (href.indexOf("?")>=0){
-				var query=href.split("query=")[1];
-				main1.style.display="none";
-				main2.style.display="block";
-				img_main2.src=query;
-				document.querySelector("input[name='q6_src']").value=query;
-			}
 			var imgs_ventas=document.querySelectorAll("#ventas img");
 			for (var x=0;x<imgs_ventas.length;x++){
 				imgs_ventas[x].onclick=function(){
-					var src=this.src;
-					document.location.href+="?query="+src;
+					var query=this.src;
+					img_main2.src=query;
+					main2.style.display="block";
+					document.querySelector("input[name='q6_src']").value=query;
 				};
 			}
 			const scriptURL1="https://submit.jotformeu.com/submit/210954453517053";
 			form1.addEventListener("submit",e=>{
 				e.preventDefault();
 				fetch(scriptURL1,{method:"POST",body:new FormData(form1)})
-					.then(response=>document.location.href="https://pauyti.github.io/comprar.html")
+					.then(response=>main2.style.display="none")
 					.catch(error=>alert("Error! "+error.message));
 			});
 		</script>
