@@ -79,21 +79,27 @@
 			<img width="700px" id="img_main2">
 			<form name="submit-form" id="form1" style="text-align:center;">
 				<div style="height:40px;"></div>
+				<input type="hidden" name="formID" value="210954453517053">
+				<input type="hidden" id="JWTContainer" value="">
+				<input type="hidden" id="cardinalOrderNumber" value="">
 				<div>
-					<input name="name" placeholder="Nombre" type="text" required>
+					<input name="q7_nombreY" placeholder="Nombre" type="text" required>
 				</div>
 				<div>
-					<input name="email" placeholder="Email" type="email" required>
+					<input name="q4_email" placeholder="Email" type="email" required>
 				</div>
 				<div>
-					<input name="telephone" placeholder="Teléfono" type="text" required>
+					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
 				</div>
 				<div>
-					<input name="src" placeholder="src" type="text" required>
+					<input name="q6_src" placeholder="src" type="text" required>
 				</div>
 				<div>
 					<button type="submit">Enviar</button>
 				</div>
+				<input type="text" name="website" value="" hidden>
+				<input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="210954453517053-210954453517053">
+				<input type="hidden" name="event_id" value="1617724352942_210954453517053_xgUtTpd">
 			</form>
 		</div>
 		<script type="text/javascript">
@@ -115,7 +121,7 @@
 				main1.style.display="none";
 				main2.style.display="block";
 				img_main2.src=query;
-				document.querySelector("input[name='src']").value=query;
+				document.querySelector("input[name='q6_src']").value=query;
 			}
 			var imgs_ventas=document.querySelectorAll("#ventas img");
 			for (var x=0;x<imgs_ventas.length;x++){
@@ -124,7 +130,7 @@
 					document.location.href+="?query="+src;
 				};
 			}
-			const scriptURL1="https://script.google.com/macros/s/AKfycbzpjVR-vKGnxBnz_KIknScFOGIFyMTkOyoeRGG2cvmPG93OPCs/exec";
+			const scriptURL1="https://submit.jotformeu.com/submit/210954453517053";
 			form1.addEventListener("submit",e=>{
 				e.preventDefault();
 				fetch(scriptURL1,{method:"POST",body:new FormData(form1)})
