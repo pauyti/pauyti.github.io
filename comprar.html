@@ -114,10 +114,6 @@
 		</div>
 		<script type="text/javascript">
 			var menu=document.getElementById("menu");
-			var main1=document.getElementById("main1");
-			var main2=document.getElementById("main2");
-			var img_main2=document.getElementById("img_main2");
-			var form1=document.getElementById("form1");
 			var xhr=new XMLHttpRequest();
 			xhr.onload=function(){
 				var response=xhr.response;
@@ -125,6 +121,12 @@
 			};
 			xhr.open("GET","https://pauyti.github.io/menu.txt",true);
 			xhr.send();
+		</script>
+		<script type="text/javascript">
+			var main1=document.getElementById("main1");
+			var main2=document.getElementById("main2");
+			var img_main2=document.getElementById("img_main2");
+			var form1=document.getElementById("form1");
 			var href=document.location.href;
 			var imgs_ventas=document.querySelectorAll("#ventas img");
 			for (var x=0;x<imgs_ventas.length;x++){
