@@ -30,7 +30,7 @@ if ($videojuego === FALSE) { #Si no existe ningún registro con ese id
 		<input value="<?php echo $videojuego->titulo; ?>" type="text" id="titulo" name="titulo" required placeholder="El título del videojuego">
 		<br>
 		<br>
-		<label for="anio">Año</label>
+		<label for="anio">Año </label>
 		<input value="<?php echo $videojuego->anio; ?>" type="number" id="anio" name="anio" required placeholder="Escribe el año del videojuego">
 		<br>
 		<br>
