@@ -132,7 +132,7 @@
 			form1.addEventListener("submit",e=>{
 				e.preventDefault();
 				fetch(scriptURL1,{method:"POST",body:new FormData(form1)})
-					.then(response=>alert("Success! "+response))
+					.then(response=>document.location.href="https://pauyti.github.io/comprar.html")
 					.catch(error=>alert("Error! "+error.message));
 			});
 		</script>
