@@ -146,6 +146,7 @@
 			var img_main2=document.getElementById("img_main2");
 			var form1=document.getElementById("form1");
 			var form2=document.getElementById("form2");
+			var ventas_div=document.getElementById("ventas");
 			var href=document.location.href;
 			var url_imgs="https://pauyti.github.io/vender.json";
 			var data;
@@ -154,7 +155,7 @@
 				data=JSON.parse(xhr_imgs.response);
 				for (var id in data){
 					var src=data[id]["src"];
-					document.querySelector("#ventas").innerHTML+="<img width='200px' id='"+id+"' src='"+src+"'>";
+					ventas_div.innerHTML="<img width='200px' id='"+id+"' src='"+src+"'>"+centas_div.innerHTML;
 				}
 				var imgs_ventas=document.querySelectorAll("#ventas img");
 				for (var x=0;x<imgs_ventas.length;x++){
