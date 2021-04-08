@@ -15,13 +15,12 @@
 				cursor:pointer;
 			}
 			#main2{
-				margin:auto;
-				z-index:100;
-				position:fixed;
+				margin:Auto;
 				display:none;
-				left:0;top:0;right:0;
-				background-color:gray;
 				padding:10px;
+				width:600px;
+				border:2px solid #4fffff;
+				border-radius:20px;
 			}
 			form input{
 				width:400px;
@@ -57,32 +56,6 @@
 		</style>
 	</head>
 	<body>
-		<div id="main2">
-			<img width="600px" id="img_main2">
-			<form name="submit-form" id="form1" style="text-align:center;float:right;">
-				<div style="height:40px;"></div>
-				<input type="hidden" name="formID" value="210954453517053">
-				<input type="hidden" id="JWTContainer" value="">
-				<input type="hidden" id="cardinalOrderNumber" value="">
-				<div>
-					<input name="q7_nombreY" placeholder="Nombre" type="text" required>
-				</div>
-				<div>
-					<input name="q4_email" placeholder="Email" type="email" required>
-				</div>
-				<div>
-					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
-				</div>
-				<div>
-					<button type="button" onclick="main2.style.display='none';">Cancelar</button>
-					<button type="submit">Enviar</button>
-				</div>
-				<input name="q6_src" placeholder="src" type="text" hidden>
-				<input type="text" name="website" value="" hidden>
-				<input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="210954453517053-210954453517053">
-				<input type="hidden" name="event_id" value="1617724352942_210954453517053_xgUtTpd">
-			</form>
-		</div>
 		<div id="main1">
 			<div style="height:630px;">
 				<div style="position:absolute;left:0;right:0;top:0;height:630px;background-position:center center;background-size:cover;border:1px solid black;background-image:url('https://monfortinogastrobar.com/wp-content/uploads/2021/01/piano-monfortino.jpg');">
@@ -102,15 +75,60 @@
 			</div>
 			<div style="height:10px;"></div>
 			<div id="menu"></div>
-			<div id="ventas" style="margin:auto;width:850px;">
-				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/168934376_883330632517027_8586510671644666178_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=107&_nc_ohc=sktb0bdrHOMAX-3eR61&edm=AP_V10EAAAAA&ccb=7-4&oh=0fdf5f58f46cf60c83b0911f514193a4&oe=6092A7EB&_nc_sid=4f375e">
-				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/169432772_867165260545412_2642542226535045293_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=mvC91r-lls0AX_LX507&edm=AP_V10EAAAAA&ccb=7-4&oh=8e254d14b8d9d9615005fb88452a9b65&oe=6090D145&_nc_sid=4f375e">
-				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/168077658_1089487044881337_5816346179450701843_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=NGvfOfXrhpwAX87iTMe&edm=AP_V10EAAAAA&ccb=7-4&oh=578da89315ceb6f7b92792b39f764028&oe=60917679&_nc_sid=4f375e">
-				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/167407336_184285270021773_1301301769135533471_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=gE0hN0r7OoAAX-k9E5p&edm=AP_V10EAAAAA&ccb=7-4&oh=5ec477f0916bd83f3d83ca12e0989da8&oe=608EF81D&_nc_sid=4f375e">
-				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/164153683_119970750111373_6592114363203900680_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=101&_nc_ohc=Yd03m_CTUG4AX_QOUvT&edm=AP_V10EAAAAA&ccb=7-4&oh=2c8b899bb7d7213b608eb83bb2b3a272&oe=608FAB08&_nc_sid=4f375e">
-				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/fr/e15/s1080x1080/164736659_188144682891861_6143607071404242014_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=7RtUPywhQL0AX8rMnrM&edm=AP_V10EAAAAA&ccb=7-4&oh=7d7b6e45ed8dd54bee79daa887c8fcdc&oe=608E64F0&_nc_sid=4f375e">
-				<img width="200px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/161700659_482937119563388_7467860580296586611_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=2nKaqOGQaowAX9SglFB&edm=AP_V10EAAAAA&ccb=7-4&oh=2d3d7809bd16e1bde9c4a2b9fac61707&oe=609023D2&_nc_sid=4f375e">
-			</div>
+			<div id="ventas" style="margin:auto;width:850px;"></div>
+		</div>
+		<div id="main2">
+			<img width="600px" id="img_main2">
+			<form name="submit-form" id="form1" style="text-align:center;">
+				<div style="height:20px;"></div>
+				<h1>Comprar</h1>
+				<div style="height:20px;"></div>
+				<input type="hidden" name="formID" value="210954453517053">
+				<input type="hidden" id="JWTContainer" value="">
+				<input type="hidden" id="cardinalOrderNumber" value="">
+				<div>
+					<input name="q7_nombreY" placeholder="Nombre" type="text" required>
+				</div>
+				<div>
+					<input name="q4_email" placeholder="Email" type="email" required>
+				</div>
+				<div>
+					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
+				</div>
+				<div>
+					<button type="button" onclick="document.location.href='https://pauyti.github.io/comprar.html';">Cancelar</button>
+					<button type="submit">Enviar</button>
+				</div>
+				<input name="q6_id" placeholder="id" type="text" hidden>
+				<input type="text" name="website" value="" hidden>
+				<input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="210954453517053-210954453517053">
+				<input type="hidden" name="event_id" value="1617724352942_210954453517053_xgUtTpd">
+			</form>
+			<form name="submit2-form2" id="form2" style="display:none;text-align:center">
+				<div style="height:20px;"></div>
+				<h1>Solicitar</h1>
+				<div style="height:20px;"></div>
+				<input type="hidden" name="formID" value="210974579330360">
+				<input type="hidden" id="JWTContainer" value="">
+				<input type="hidden" id="cardinalOrderNumber" value="">
+				<div>
+					<input name="q7_nombreY" placeholder="Nombre" type="text" required>
+				</div>
+				<div>
+					<input name="q4_email" placeholder="Email" type="email" required>
+				</div>
+				<div>
+					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
+				</div>
+				<div>
+					<button type="button" onclick="document.location.href='https://pauyti.github.io/comprar.html';">Cancelar</button>
+					<button type="submit">Enviar</button>
+				</div>
+				<input name="q6_id" placeholder="id" type="text" hidden>
+				<input type="text" name="website" value="" hidden>
+				<input type="hidden" class="simple_spc" id="simple_spc" name="simple_spc" value="210974579330360-210974579330360">
+				<input type="hidden" name="event_id" value="1617894188718_210974579330360_rLQMpyF">
+			</form>
 		</div>
 		<script type="text/javascript">
 			var menu=document.getElementById("menu");
@@ -127,21 +145,54 @@
 			var main2=document.getElementById("main2");
 			var img_main2=document.getElementById("img_main2");
 			var form1=document.getElementById("form1");
+			var form2=document.getElementById("form2");
 			var href=document.location.href;
-			var imgs_ventas=document.querySelectorAll("#ventas img");
-			for (var x=0;x<imgs_ventas.length;x++){
-				imgs_ventas[x].onclick=function(){
-					var query=this.src;
-					img_main2.src=query;
+			var url_imgs="https://pauyti.github.io/vender.json";
+			var data;
+			var xhr_imgs=new XMLHttpRequest();
+			xhr_imgs.onload=function(){
+				data=JSON.parse(xhr_imgs.response);
+				for (var id in data){
+					var src=data[id]["src"];
+					document.querySelector("#ventas").innerHTML+="<img width='200px' id='"+id+"' src='"+src+"'>";
+				}
+				var imgs_ventas=document.querySelectorAll("#ventas img");
+				for (var x=0;x<imgs_ventas.length;x++){
+					imgs_ventas[x].onclick=function(){
+						var id=this.id;
+						document.location.href+="?id="+id;
+					};
+				}
+				if (href.indexOf("?")>=0){
+					main1.style.display="none";
+					var id=href.split("?id=")[1];
+					var src=data[id]["src"];
+					img_main2.src=src;
+					var inputs_id=document.querySelectorAll("input[name='q6_id']");
+					for(var x=0;x<inputs_id.length;x++){
+						inputs_id[x].value=id;
+					}
+					if (data[id]["vendido"]){
+						form1.style.display="none";
+						form2.style.display="block";
+					}
 					main2.style.display="block";
-					document.querySelector("input[name='q6_src']").value=query;
-				};
-			}
+				}
+			};
+			xhr_imgs.open("GET",url_imgs,true);
+			xhr_imgs.send()
 			const scriptURL1="https://submit.jotformeu.com/submit/210954453517053";
+			const scriptURL2="https://submit.jotformeu.com/submit/210974579330360";
 			form1.addEventListener("submit",e=>{
 				e.preventDefault();
 				fetch(scriptURL1,{method:"POST",body:new FormData(form1)})
-					.then(response=>main2.style.display="none")
+					.then(response=>document.location.href="https://pauyti.github.io/comprar.html")
+					.catch(error=>alert("Error! "+error.message));
+			});
+			form2.addEventListener("submit",e=>{
+				e.preventDefault();
+				fetch(scriptURL2,{method:"POST",body:new FormData(form2)})
+					.then(response=>document.location.href="https://pauyti.github.io/comprar.html")
 					.catch(error=>alert("Error! "+error.message));
 			});
 		</script>
