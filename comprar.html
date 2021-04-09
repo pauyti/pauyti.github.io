@@ -29,9 +29,10 @@
 			}
 			form textarea{
 				width:415px;
-				height:70px;
+				height:90px;
 				resize:none;
 				overflow:auto;
+				overflow-wrap:normal;
 			}
 			form button{
 				width:100px;
@@ -45,7 +46,7 @@
 				color:white;
 			}
 			form div{
-				height:80px;
+				height:100px;
 			}
 			
 			form{
@@ -56,7 +57,7 @@
 		</style>
 	</head>
 	<body>
-		<div id="main1">
+		<div id="main1" style="display:none;">
 			<div style="height:630px;">
 				<div style="position:absolute;left:0;right:0;top:0;height:630px;background-position:center center;background-size:cover;border:1px solid black;background-image:url('https://monfortinogastrobar.com/wp-content/uploads/2021/01/piano-monfortino.jpg');">
 					<div style="float:right;">
@@ -96,6 +97,9 @@
 					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
 				</div>
 				<div>
+					<textarea placeholder="Mensaje (opcional)" name="q8_mensajeopcional"></textarea>
+				</div>
+				<div>
 					<button type="button" onclick="document.location.href='https://pauyti.github.io/comprar.html';">Cancelar</button>
 					<button type="submit">Enviar</button>
 				</div>
@@ -119,6 +123,9 @@
 				</div>
 				<div>
 					<input name="q5_numeroDe[full]" placeholder="Teléfono" type="text" required>
+				</div>
+				<div>
+					<textarea placeholder="Mensaje (opcional)" name="q8_mensajeopcional"></textarea>
 				</div>
 				<div>
 					<button type="button" onclick="document.location.href='https://pauyti.github.io/comprar.html';">Cancelar</button>
@@ -165,7 +172,6 @@
 					};
 				}
 				if (href.indexOf("?")>=0){
-					main1.style.display="none";
 					var id=href.split("?id=")[1];
 					var src=data[id]["src"];
 					img_main2.src=src;
@@ -178,6 +184,9 @@
 						form2.style.display="block";
 					}
 					main2.style.display="block";
+				}
+				else{
+					main1.style.display="block";
 				}
 			};
 			xhr_imgs.open("GET",url_imgs,true);
