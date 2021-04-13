@@ -12,6 +12,7 @@
 				text-decoration:none;
 			}
 			#form1{
+				display:none;
 				margin:auto;
 				text-align:center;
 				width:500px;
@@ -69,8 +70,12 @@
 				<div>
 					<input type="password" name="password" placeholder="Contraseña" required>
 				</div>
+				<p>¿No tienes cuenta? <a href="https://pauyti.github.io/register.html">¡Regístrate!</a></p>
 				<button type="submit">Aceptar</button>
 			</form>
+			<div id="logout">
+				<button type="button" onclick="logout();">Cerrar sesión</button>
+			</div>
 		</div>
 		<script type="text/javascript">
 			var menu=document.getElementById("menu");
@@ -93,6 +98,11 @@
 					document.location.href="https://pauyti.github.io/comprar.html";
 				}).catch(function(error){alert("Error: "+error.message);});
 			});
+			function logout(){
+				firebase.auth().signOut();
+				document.getElementById("logout").style.display="none";
+				document.getElementById("form1").style.display="block";
+			}
 		</script>
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
@@ -116,6 +126,14 @@
 			// Initialize Firebase
 			firebase.initializeApp(firebaseConfig);
 			firebase.analytics();
+			firebase.auth().onAuthStateChanged(function(user) {
+				if (user) {
+					document.getElementById("logout").style.display="block";
+				}
+				else {
+					document.getElementById("form1").style.display="block";
+				}
+			});
 		</script>
 	</body>
 </html>
