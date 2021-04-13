@@ -228,16 +228,19 @@
 			// Initialize Firebase
 			firebase.initializeApp(firebaseConfig);
 			firebase.analytics();
-			var user=firebase.auth().currentUser;
-			if (user) {
-				var email=user.email;
-				var emails=document.querySelectorAll("form input[name='q4_email']");
-				for (var x=0;x<emails.length;x++){
-					emails[x].value=email;
+			setTimeout("initialize2();",1000);
+			function initialize2(){
+				var user=firebase.auth().currentUser;
+				if (user) {
+					var email=user.email;
+					var emails=document.querySelectorAll("form input[name='q4_email']");
+					for (var x=0;x<emails.length;x++){
+						emails[x].value=email;
+					}
 				}
-			}
-			else {
-				// No user is signed in.
+				else {
+					// No user is signed in.
+				}
 			}
 		</script>
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
