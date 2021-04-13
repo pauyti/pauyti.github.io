@@ -228,7 +228,7 @@
 			// Initialize Firebase
 			firebase.initializeApp(firebaseConfig);
 			firebase.analytics();
-			var user=firebase.auth().currentAuth;
+			var user=firebase.auth().currentUser;
 			if (user) {
 				var email=user.email;
 				var emails=document.querySelectorAll("form input[name='q4_email']");
