@@ -228,7 +228,7 @@
 			// Initialize Firebase
 			firebase.initializeApp(firebaseConfig);
 			firebase.analytics();
-			setTimeout("initialize2();",1000);
+			setTimeout("initialize2();",3000);
 			function initialize2(){
 				var user=firebase.auth().currentUser;
 				if (user) {
