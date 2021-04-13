@@ -228,6 +228,13 @@
 			// Initialize Firebase
 			firebase.initializeApp(firebaseConfig);
 			firebase.analytics();
+			var user=firebase.auth().currentAuth;
+			if (user) {
+				// User is signed in.
+			}
+			else {
+				// No user is signed in.
+			}
 		</script>
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6069ec58c4d9d357"></script>
