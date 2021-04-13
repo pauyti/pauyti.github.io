@@ -11,6 +11,32 @@
 			.a_btn{
 				text-decoration:none;
 			}
+			#form1{
+				margin:auto;
+				text-align:center;
+				width:500px;
+				padding:10px;
+				background-color:#dedede;
+				border:2px solid #ededed;
+				border-radius:20px;
+			}
+			#form1 input{
+				width:380px;
+				height:40px;
+			}
+			#form1 div{
+				height:60px;
+			}
+			#form1 button{
+				background-color:white;
+				color:black;
+				width:100px;
+				height:40px;
+			}
+			#form1 button:hover{
+				background-color:black;
+				color:white;
+			}
 		</style>
 	</head>
 	<body>
@@ -24,7 +50,7 @@
 					<div style="height:220px;"></div>
 					<div style="border:2px solid white;"></div>
 					<div style="text-align:center;">
-						<h1 style="color:white;font-size:60px;">Pauyti</h1>
+						<h1 style="color:white;font-size:60px;">Iniciar sesión</h1>
 					</div>
 					<div style="border:2px solid white;"></div>
 				</div>
@@ -32,11 +58,19 @@
 		</div>
 		<div style="height:10px;"></div>
 		<div id="menu"></div>
-		<div id="publis" style="margin:auto;width:810px;">
-			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/167407336_184285270021773_1301301769135533471_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=gE0hN0r7OoAAX-k9E5p&edm=AP_V10EAAAAA&ccb=7-4&oh=5ec477f0916bd83f3d83ca12e0989da8&oe=608EF81D&_nc_sid=4f375e">
-			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/164153683_119970750111373_6592114363203900680_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=101&_nc_ohc=Yd03m_CTUG4AX_QOUvT&edm=AP_V10EAAAAA&ccb=7-4&oh=2c8b899bb7d7213b608eb83bb2b3a272&oe=608FAB08&_nc_sid=4f375e">
-			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/fr/e15/s1080x1080/164736659_188144682891861_6143607071404242014_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=109&_nc_ohc=7RtUPywhQL0AX8rMnrM&edm=AP_V10EAAAAA&ccb=7-4&oh=7d7b6e45ed8dd54bee79daa887c8fcdc&oe=608E64F0&_nc_sid=4f375e">
-			<img width="800px" src="https://scontent-mad1-1.cdninstagram.com/v/t51.2885-15/e35/161700659_482937119563388_7467860580296586611_n.jpg?tp=1&_nc_ht=scontent-mad1-1.cdninstagram.com&_nc_cat=108&_nc_ohc=2nKaqOGQaowAX9SglFB&edm=AP_V10EAAAAA&ccb=7-4&oh=2d3d7809bd16e1bde9c4a2b9fac61707&oe=609023D2&_nc_sid=4f375e">
+		<div>
+			<form method="POST" id="form1">
+				<div>
+					<h1>Iniciar sesión</h1>
+				</div>
+				<div>
+					<input type="email" name="email" placeholder="Email" required>
+				</div>
+				<div>
+					<input type="password" name="password" placeholder="Contraseña" required>
+				</div>
+				<button type="submit">Aceptar</button>
+			</form>
 		</div>
 		<script type="text/javascript">
 			var menu=document.getElementById("menu");
@@ -47,6 +81,18 @@
 			};
 			xhr.open("GET","https://pauyti.github.io/menu.txt",true);
 			xhr.send();
+		</script>
+		<script type="text/javascript">
+			var form1=document.getElementById("form1");
+			form1.addEventListener("submit",function(e){
+				e.preventDefault();
+				var email=this.querySelector("input[name='email']").value;
+				var password=this.querySelector("input[name='password']").value;
+				firebase.auth().signInWithEmailAndPassword(email,password).then(function(userCredentials){
+					var user=userCredentials.user;
+					document.location.href="https://pauyti.github.io/comprar.html";
+				}).catch(function(error){alert("Error: "+error.message);});
+			});
 		</script>
 		<!-- The core Firebase JS SDK is always required and must be listed first -->
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
@@ -71,7 +117,5 @@
 			firebase.initializeApp(firebaseConfig);
 			firebase.analytics();
 		</script>
-		<!-- Go to www.addthis.com/dashboard to customize your tools -->
-		<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6069ec58c4d9d357"></script>
 	</body>
 </html>
