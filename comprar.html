@@ -228,9 +228,7 @@
 			// Initialize Firebase
 			firebase.initializeApp(firebaseConfig);
 			firebase.analytics();
-			setTimeout("initialize2();",3000);
-			function initialize2(){
-				var user=firebase.auth().currentUser;
+			firebase.auth().onAuthStateChanged(function(user) {
 				if (user) {
 					var email=user.email;
 					var emails=document.querySelectorAll("form input[name='q4_email']");
@@ -241,7 +239,7 @@
 				else {
 					// No user is signed in.
 				}
-			}
+			});
 		</script>
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6069ec58c4d9d357"></script>
