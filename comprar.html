@@ -230,7 +230,11 @@
 			firebase.analytics();
 			var user=firebase.auth().currentAuth;
 			if (user) {
-				// User is signed in.
+				var email=user.email;
+				var emails=document.querySelectorAll("form input[name='q4_email']");
+				for (var x=0;x<emails.length;x++){
+					emails[x].value=email;
+				}
 			}
 			else {
 				// No user is signed in.
