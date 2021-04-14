@@ -149,6 +149,7 @@
 			firebase.analytics();
 			firebase.auth().onAuthStateChanged(function(user) {
 				if (user) {
+					document.getElementById("form1").style.display="none";
 					document.getElementById("logout").style.display="block";
 				}
 				else {
