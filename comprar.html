@@ -231,9 +231,14 @@
 			firebase.auth().onAuthStateChanged(function(user) {
 				if (user) {
 					var email=user.email;
+					var name=user.displayName;
 					var emails=document.querySelectorAll("form input[name='q4_email']");
+					var names=document.querySelectorAll("form input[name='q7_nombreY']");
 					for (var x=0;x<emails.length;x++){
 						emails[x].value=email;
+					}
+					for (var y=0;y<names.length;y++){
+						names[y].value=name;
 					}
 				}
 				else {
