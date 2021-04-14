@@ -1,4 +1,5 @@
 <div class="btns_menu">
+			<div style="width:40px;"></div>
 			<button type="button" onclick="document.location.href='https://pauyti.github.io';">Inicio</button>
 			<button type="button" onclick="document.location.href='https://pauyti.github.io/comprar.html';">Comprar</button>
 			<button type="button" onclick="document.location.href='https://pauyti.github.io/contacto.html';">Contacto</button>
