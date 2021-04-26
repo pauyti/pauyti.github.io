@@ -69,6 +69,33 @@
 			</form>
 		</div>
 		<script type="text/javascript">
+			var chars="abcdefghijklmnopqrstuvwxyz";
+			chars+=chars.toUpperCase();
+			chars+="0123456789.-_()/&%$#@|";
+			
+			function encrypt(id,phone){
+				var result="";
+				for (var x in phone){
+					var number=phone[x];
+					index=parseInt(number)+chars.indexOf(id[7]);
+					char=chars[index];
+					result+=char;
+				}
+				return result;
+			}
+			
+			function decrypt(id,phone){
+				var result="";
+				for (var x in phone){
+					var number=phone[x];
+					index=chars.indexOf(number);
+					index=parseInt(index)-chars.indexOf(id[7]);
+					result+=index;
+				}
+				return result;
+			}
+		</script>
+		<script type="text/javascript">
 			var menu=document.getElementById("menu");
 			var xhr=new XMLHttpRequest();
 			xhr.onload=function(){
@@ -86,8 +113,11 @@
 					displayName:this.querySelector("#form1 input[name='name']").value,
 					email:this.querySelector("#form1 input[name='email']").value,
 					photoURL:this.querySelector("#form1 input[name='photoURL']").value,
-					phoneNumber:this.querySelector("#form1 input[name='telephone']").value
 				};
+				var phone=this.querySelector("#form1 input[name='telephone']").value
+				var id=firebase.auth().currentUser.uid;
+				phone=encrypt(id,phone);
+				firebase.database().ref("users/"+id).set({phone:phone});
 				firebase.auth().currentUser.updateProfile(data);
 			});
 		</script>
@@ -97,6 +127,7 @@
 		https://firebase.google.com/docs/web/setup#available-libraries -->
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
 		<script>
 			// Your web app's Firebase configuration
 			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -116,11 +147,14 @@
 			firebase.auth().onAuthStateChanged(function(user) {
 				if (user) {
 					var name=user.displayName;
-					var telephone=user.phoneNumber;
+					firebase.database().ref("users/"+user.uid).on("value",function(snapshot){
+						var telephone=snapshot.val().phone;
+						telephone=decrypt(user.uid,telephone);
+						document.querySelector("#form1 input[name='telephone']").value=telephone;
+					});
 					var email=user.email;
 					var photoURL=user.photoURL;
 					document.querySelector("#form1 input[name='name']").value=name;
-					document.querySelector("#form1 input[name='telephone']").value=telephone;
 					document.querySelector("#form1 input[name='email']").value=email;
 					document.querySelector("#form1 input[name='photoURL']").value=photoURL;
 				}
