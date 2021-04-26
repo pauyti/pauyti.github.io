@@ -67,11 +67,41 @@
 					<input type="email" name="email" placeholder="Email" required>
 				</div>
 				<div>
+					<input type="text" name="phone" placeholder="Teléfono" required>
+				</div>
+				<div>
 					<input type="password" name="password" placeholder="Contraseña" required>
 				</div>
 				<button type="submit">Aceptar</button>
 			</form>
 		</div>
+		<script type="text/javascript">
+			var chars="abcdefghijklmnopqrstuvwxyz";
+			chars+=chars.toUpperCase();
+			chars+="0123456789.-_()/&%$#@|";
+			
+			function encrypt(id,phone){
+				var result="";
+				for (var x in phone){
+					var number=phone[x];
+					index=parseInt(number)+chars.indexOf(id[7]);
+					char=chars[index];
+					result+=char;
+				}
+				return result;
+			}
+			
+			function decrypt(id,phone){
+				var result="";
+				for (var x in phone){
+					var number=phone[x];
+					index=chars.indexOf(number);
+					index=parseInt(index)-chars.indexOf(id[7]);
+					result+=index;
+				}
+				return result;
+			}
+		</script>
 		<script type="text/javascript">
 			var menu=document.getElementById("menu");
 			var xhr=new XMLHttpRequest();
@@ -88,8 +118,14 @@
 				e.preventDefault();
 				var password=this.querySelector("input[name='password']").value;
 				var email=this.querySelector("input[name='email']").value;
+				var phone=this.querySelector("input[name='phone']").value;
 				firebase.auth().createUserWithEmailAndPassword(email,password).then(function(userCredentials){
 					var user=userCredentials.user;
+					var id=user.uid;
+					phone=encrypt(id,phone);
+					firebase.database().ref("users/"+id).set({
+						phone:phone
+					});
 					document.location.href="https://pauyti.github.io/login.html";
 				}).catch(function(error){alert("Error: "+error.message);});
 			});
@@ -100,6 +136,7 @@
 		https://firebase.google.com/docs/web/setup#available-libraries -->
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
 		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
 		<script>
 			// Your web app's Firebase configuration
 			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
