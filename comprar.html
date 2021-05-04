@@ -189,7 +189,7 @@
 				data=JSON.parse(xhr_imgs.response);
 				for (var id in data){
 					var src=data[id]["src"];
-					ventas_div.innerHTML="<img width='200px' id='"+id+"' src='"+src+"'>"+ventas_div.innerHTML;
+					ventas_div.innerHTML="<div style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><img width='100%' id='"+id+"' src='"+src+"'></div>"+ventas_div.innerHTML;
 				}
 				var imgs_ventas=document.querySelectorAll("#ventas img");
 				for (var x=0;x<imgs_ventas.length;x++){
