@@ -76,7 +76,12 @@
 			</div>
 			<div style="height:10px;"></div>
 			<div id="menu"></div>
-			<div id="ventas" style="margin:auto;width:850px;"></div>
+			<div id="searchDiv" style="padding:10px;text-align:center;">
+				<form id="searchForm" method="POST">
+					<input style="width:300px;height:40px;" type="text" name="q" placeholder="Buscar">
+				</form>
+			</div>
+			<div id="ventas" style="margin:auto;width:850px;height:1100px;"></div>
 		</div>
 		<div id="main2">
 			<img width="600px" id="img_main2">
@@ -180,6 +185,7 @@
 			var img_main2=document.getElementById("img_main2");
 			var form1=document.getElementById("form1");
 			var form2=document.getElementById("form2");
+			var searchForm=document.getElementById("searchForm");
 			var ventas_div=document.getElementById("ventas");
 			var href=document.location.href;
 			var url_imgs="https://pauyti.github.io/vender.json";
@@ -218,6 +224,32 @@
 			};
 			xhr_imgs.open("GET",url_imgs,true);
 			xhr_imgs.send()
+			searchForm.addEventListener("submit",function(e){
+				e.preventDefault();
+				var q=this.querySelector("input[name='q']").value;
+				var results="";
+				q=q.toLowerCase();
+				for (var id in data){
+					img=data[id];
+					if (Boolean(img.tags)){
+						var tags=img.tags;
+						if (Boolean(tags.match(q))){
+							var src=data[id].src;
+							results="<div style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
+						}
+						else{
+							for (var tag in tags.split(",")){
+								var t=tags.split(",")[tag];
+								if(Boolean(q.match(t))){
+									var src=data[id].src;
+									results="<div style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
+								}
+							}
+						}
+					}
+				}
+				ventas_div.innerHTML=results;
+			});
 			const scriptURL1="https://submit.jotformeu.com/submit/210954453517053";
 			const scriptURL2="https://submit.jotformeu.com/submit/210974579330360";
 			form1.addEventListener("submit",e=>{
