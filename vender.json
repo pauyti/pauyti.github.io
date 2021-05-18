@@ -31,5 +31,9 @@
   "30":{"vendido":false,"src":"https://pauyti.github.io/img/30.jpg"},
   "31":{"vendido":false,"src":"https://pauyti.github.io/img/31.jpg"},
   "32":{"vendido":false,"src":"https://pauyti.github.io/img/32.jpg"},
-  "33":{"vendido":false,"src":"https://pauyti.github.io/img/33.jpg"}
+  "33":{"vendido":false,"src":"https://pauyti.github.io/img/33.jpg"},
+  "34":{"vendido":false,"src":"https://pauyti.github.io/img/34.jpg","tags":"jubón,azul"},
+  "35":{"vendido":false,"src":"https://pauyti.github.io/img/35.jpg","tags":"jubón,patucos,gris,rosa"},
+  "36":{"vendido":false,"src":"https://pauyti.github.io/img/36.jpg","tags":"jubón,azul"},
+  "37":{"vendido":false,"src":"https://pauyti.github.io/img/37.jpg","tags":"jubón,patucos,gris"}
 }
