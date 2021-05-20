@@ -54,6 +54,18 @@
 				margin:auto;
 				width:600px;
 			}
+			#searchForm button{
+				background-color:white;
+				border-color:black;
+				color:black;
+				font-size:20px;
+				width:100px;
+				height:40px;
+			}
+			#searchForm button:hover{
+				background-color:black;
+				color:white;
+			}
 		</style>
 	</head>
 	<body>
@@ -79,9 +91,10 @@
 			<div id="searchDiv" style="padding:10px;text-align:center;">
 				<form id="searchForm" method="POST">
 					<input style="width:300px;height:40px;" type="text" name="q" placeholder="Buscar">
+					<button type="submit">Buscar</button>
 				</form>
 			</div>
-			<div id="ventas" style="margin:auto;width:850px;height:1100px;"></div>
+			<div id="ventas" style="margin:auto;width:850px;"></div>
 		</div>
 		<div id="main2">
 			<div style="width:600px;height:600px;position:absolute;"></div>
