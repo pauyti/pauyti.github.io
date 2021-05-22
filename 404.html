@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="shortcut icon" href="https://pauyti.github.io/favicon.jpg">
 		<title>Pauyti</title>
 		<style>
 			button{
@@ -23,7 +24,7 @@
 					<div style="height:220px;"></div>
 					<div style="border:2px solid white;"></div>
 					<div style="text-align:center;">
-						<h1 style="color:white;font-size:60px;">Contacto</h1>
+						<h1 style="color:white;font-size:60px;">Error 404</h1>
 					</div>
 					<div style="border:2px solid white;"></div>
 				</div>
@@ -31,26 +32,13 @@
 		</div>
 		<div style="height:10px;"></div>
 		<div id="menu"></div>
-		<div>
-			<div style="margin:auto;height:150px;width:410px;">
-				<div style="float:left;width:400px;text-align:center;border: 2px solid #4fffff;">
-					<p>Correo:
-					<a href="mailto:pauyti.avelpm@gmail.com?subject=Información" target="_blank">pauyti.avelpm@gmail.com</a>
-					</p>
-					<p>Teléfono: <a href="tel:+34616877447" target="_blank">+34 616 87 74 47</a></p>
-					<p>Whatsapp: <a href="https://api.whatsapp.com/send?phone=+34616877447" target="_blank">+34 616 87 74 47</a></p>
-					<p>Instagram: <a href="https://www.instagram.com/pauyti" target="_blank">@pauyti</a></p>
-				</div>
-			</div>
-			<div style="height:100px;"></div>
-			<div style="text-align:center;">
-				<div style="margin:auto;width:800px;border:1px solid black;"></div>
-				<h2>Formulario de contacto</h2>
-				<div style="margin:auto;width:800px;border:1px solid black;"></div>
-				<div style="height:60px;"></div>
-				<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeYytGbbv5TlXV4PT_YkiBveLmAIousvvcFyMoXMlBBdg06Tg/viewform?embedded=true" width="640" height="1046" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-			</div>
+		<div id="message"  style="text-align:center;height:200px;font-size:17px;">
+			<p>The requested URL /<a id="requested_url"></a> was not found on this server.</p>
 		</div>
+		<script type="text/javascript">
+			var requested_url=document.getElementById("requested_url");
+			requested_url.innerHTML=document.location.href.split("/").splice(3).join("/");
+		</script>
 		<script type="text/javascript">
 			var menu=document.getElementById("menu");
 			var xhr=new XMLHttpRequest();
@@ -61,5 +49,5 @@
 			xhr.open("GET","https://pauyti.github.io/menu.txt",true);
 			xhr.send();
 		</script>
-	</body>
+		</body>
 </html>
