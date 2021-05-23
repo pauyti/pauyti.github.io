@@ -66,6 +66,16 @@
 				background-color:black;
 				color:white;
 			}
+			#btn_pages button:hover{
+				background-color:black;
+				color:white;
+			}
+			#btn_pages button{
+				width:80px;
+				height:40px;
+				background-color:white;
+				border-color:black;
+			}
 		</style>
 	</head>
 	<body>
@@ -95,6 +105,10 @@
 				</form>
 			</div>
 			<div id="ventas" style="margin:auto;width:850px;height:1100px;"></div>
+			<div id="btn_pages" style="margin:auto;text-align:center;">
+				<button type="button" onclick="getPage(0);">Anterior</button>
+				<button type="button" onclick="getPage(1);">Siguiente</button>
+			</div>
 		</div>
 		<div id="main2">
 			<div style="width:600px;height:600px;position:absolute;"></div>
@@ -194,6 +208,8 @@
 			xhr.send();
 		</script>
 		<script type="text/javascript">
+			const imgs=20;
+			var page=1;
 			var main1=document.getElementById("main1");
 			var main2=document.getElementById("main2");
 			var img_main2=document.getElementById("img_main2");
@@ -204,16 +220,40 @@
 			var href=document.location.href;
 			var url_imgs="https://pauyti.github.io/vender.json";
 			var data;
+			var urlParams=new URLSearchParams(href.split("?")[1]);
+			if (Boolean(urlParams.get("page"))){
+				page=parseInt(urlParams.get("page"));
+			}
+			function getPage(num){
+				if (num==0){
+					if (page>1){
+						document.location.href=document.location.href.split("?")[0]+"?page="+(page-1);
+					}
+				}
+				else{
+					document.location.href=document.location.href.split("?")[0]+"?page="+(page+1);
+				}
+			}
 			var xhr_imgs=new XMLHttpRequest();
 			xhr_imgs.onload=function(){
 				data=JSON.parse(xhr_imgs.response);
+				var all_indexs=[];
+				for (var y in data){
+					all_indexs.push(parseInt(y));
+				}
+				var indexs=[];
+				for (var x=all_indexs.length-imgs*page+1;x<all_indexs.length-imgs*(page-1)+1;x++){
+					indexs.push(x);
+				}
 				for (var id in data){
-					var src=data[id]["src"];
-					ventas_div.innerHTML="<div onclick='document.location.href+=\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+ventas_div.innerHTML;
+					if (indexs.indexOf(parseInt(id))>=0){
+						var src=data[id]["src"];
+						ventas_div.innerHTML="<div onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+ventas_div.innerHTML;
+					}
 				}
 				var imgs_ventas=document.querySelectorAll("#ventas img");
-				if (href.indexOf("?")>=0){
-					var id=href.split("?id=")[1];
+				if (Boolean(urlParams.get("id"))){
+					var id=urlParams.get("id");
 					var src=data[id]["src"];
 					img_main2.src=src;
 					var inputs_id=document.querySelectorAll("input[name='q6_id']");
@@ -243,14 +283,14 @@
 						var tags=img.tags;
 						if (Boolean(tags.match(q))){
 							var src=data[id].src;
-							results="<div onclick='document.location.href+=\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
+							results="<div onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
 						}
 						else{
 							for (var tag in tags.split(",")){
 								var t=tags.split(",")[tag];
 								if(Boolean(q.match(t))){
 									var src=data[id].src;
-									results="<div onclick='document.location.href+=\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
+									results="<div onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
 									break;
 								}
 							}
