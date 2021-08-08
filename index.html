@@ -86,11 +86,11 @@
 		</div>
 		<script type="text/javascript">
 			var cookiesAlert=document.getElementById("cookiesAlert");
-			if(!document.cookie.indexOf("cookies=true")>=0){
+			if(!localStorage.cookies){
 				cookiesAlert.style.display="block";
 			}
 			function acceptCookies(){
-				document.cookie="cookies=true";
+				localStorage.cookies="true";
 				cookiesAlert.style.display="none";
 			}
 		</script>
