@@ -5,7 +5,7 @@
 		<button type="button" onclick="document.location.href='https://pauyti.github.io/contacto.html';">Contacto</button>
 	</div>
 	<div style="float:right;">
-		<button type="button" style="border:0px;" onclick="document.location.href='https://pauyti.github.io/login.html';">Iniciar sesión</button>
+		<button type="button" style="border:0px;display:none;" onclick="document.location.href='https://pauyti.github.io/login.html';">Iniciar sesión</button>
 	</div>
 </div>
 <div style="height:30px;"></div>
