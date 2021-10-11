@@ -41,6 +41,22 @@
 				overflow:auto;
 				border-radius:20px;
 			}
+			.rightTitle{
+				color:white;
+				float:left;
+			}
+			.mainTitle{
+				color:white;
+				font-size:60px;
+			}
+			@media (max-device-width:800px){
+				.rightTitle{
+					font-size:50px;
+				}
+				.mainTitle{
+					font-size:90px;
+				}
+			}
 		</style>
 	</head>
 	<body>
@@ -48,13 +64,13 @@
 			<div style="position:absolute;left:0;right:0;top:0;height:660px;background-position:center center;background-size:cover;border:1px solid black;background-image:url('https://pauyti.github.io/img_div_main.jpg');">
 				<div style="float:right;">
 					<div style="float:right;width:15px;"></div>
-					<h1 style="color:white;float:left;">Pauyti</h1>
+					<h1 class="rightTitle">Pauyti</h1>
 				</div>
 				<div style="margin:auto;width:460px;">
 					<div style="height:220px;"></div>
 					<div style="border:2px solid white;"></div>
 					<div style="text-align:center;">
-						<h1 style="color:white;font-size:60px;">Pauyti</h1>
+						<h1 class="mainTitle">Pauyti</h1>
 					</div>
 					<div style="border:2px solid white;"></div>
 				</div>
