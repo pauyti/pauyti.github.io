@@ -102,12 +102,25 @@
 			</div>
 		</div>
 		<script type="text/javascript">
+			function getCookie(name){
+				var cookieRegex=new RegExp(name+"=([^;]*)");
+				var value=cookieRegex.exec(document.cookie);
+				if(value && value.length>=2){
+					value=value[1];
+				}
+				return value;
+			}
+			function setCookie(name,value,data){
+				document.cookie=name+"="+value+";"+data;
+			}
 			var cookiesAlert=document.getElementById("cookiesAlert");
-			if(!localStorage.cookies){
+			if(!getCookie("accept_cookies")){
 				cookiesAlert.style.display="block";
 			}
 			function acceptCookies(){
-				localStorage.cookies="true";
+				var dateExpires=new Date();
+				dateExpires.setMonth(dateExpires.getMonth()+2);
+				setCookie("accept_cookies","true","expires="+dateExpires.toUTCString()+";");
 				cookiesAlert.style.display="none";
 			}
 		</script>
