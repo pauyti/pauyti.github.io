@@ -12,6 +12,9 @@
 			.a_btn{
 				text-decoration:none;
 			}
+			#ventas{
+				margin:8px;
+			}
 			#ventas img{
 				cursor:pointer;
 			}
@@ -77,6 +80,20 @@
 				background-color:white;
 				border-color:black;
 			}
+			.divImg{
+				display:inline-block;
+				border:1px solid #dedede;
+				width:calc(99% / 4);
+				position:relative;
+			}
+			.divImgButton{
+				cursor:pointer;
+				position:absolute;
+				top:0;
+				bottom:0;
+				right:0;
+				left:0;
+			}
 		</style>
 	</head>
 	<body style="margin:0;">
@@ -105,7 +122,7 @@
 					<button type="submit">Buscar</button>
 				</form>
 			</div>
-			<div id="ventas" style="margin:auto;width:850px;height:1100px;"></div>
+			<div id="ventas"></div>
 			<div id="btn_pages" style="margin:auto;text-align:center;">
 				<button type="button" onclick="getPage(0);">Anterior</button>
 				<button type="button" onclick="getPage(1);">Siguiente</button>
@@ -250,7 +267,7 @@
 				for (var id in data){
 					if (indexs.indexOf(parseInt(id))>=0){
 						var src=data[id]["src"];
-						ventas_div.innerHTML="<div onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+ventas_div.innerHTML;
+						ventas_div.innerHTML="<div class='divImg' onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"'><div class='divImgButton'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+ventas_div.innerHTML;
 					}
 				}
 				var imgs_ventas=document.querySelectorAll("#ventas img");
@@ -285,14 +302,14 @@
 						var tags=img.tags;
 						if (Boolean(tags.match(q))){
 							var src=data[id].src;
-							results="<div onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
+							results="<div class='divImg' onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"'><div class='divImgButton'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
 						}
 						else{
 							for (var tag in tags.split(",")){
 								var t=tags.split(",")[tag];
 								if(Boolean(q.match(t))){
 									var src=data[id].src;
-									results="<div onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"' style='border:1px solid #dedede;float:left;width:210px;height:210px;text-align:center;'><div style='cursor:pointer;width:210px;height:210px;position:absolute;'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
+									results="<div class='divImg' onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"'><div class='divImgButton'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+results;
 									break;
 								}
 							}
