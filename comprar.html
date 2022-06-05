@@ -70,6 +70,14 @@
 				background-color:black;
 				color:white;
 			}
+			#searchForm input{
+				width:300px;
+				height:40px;
+				transition:0.5s;
+			}
+			#searchForm input:focus{
+				width:calc(100% - 120px);
+			}
 			#btn_pages button:hover{
 				background-color:black;
 				color:white;
@@ -118,7 +126,7 @@
 			<div id="menu"></div>
 			<div id="searchDiv" style="padding:10px;text-align:center;">
 				<form id="searchForm" method="POST">
-					<input style="width:300px;height:40px;" type="text" name="q" placeholder="Buscar">
+					<input type="text" name="q" placeholder="Buscar">
 					<button type="submit">Buscar</button>
 				</form>
 			</div>
