@@ -27,9 +27,4 @@
 		background-color:black;
 		color:white;
 	}
-	@media (max-device-width:600px){
-		.btns_menu button{
-			font-size:40px;
-		}
-	}
 </style>
