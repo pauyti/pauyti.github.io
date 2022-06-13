@@ -369,14 +369,16 @@
 					.catch(error=>alert("Error! "+error.message));
 			});
 		</script>
-		<!-- The core Firebase JS SDK is always required and must be listed first -->
-		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-app.js"></script>
-		<!-- TODO: Add SDKs for Firebase products that you want to use
-		https://firebase.google.com/docs/web/setup#available-libraries -->
-		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-analytics.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-auth.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/8.4.1/firebase-database.js"></script>
-		<script>
+		<script type="module">
+			// Import the functions you need from the SDKs you need
+			import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
+			import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
+			import { getDatabase,ref,onValue } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
+			import { getAuth,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
+			import { initializeAppCheck,ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app-check.js";
+			// TODO: Add SDKs for Firebase products that you want to use
+			// https://firebase.google.com/docs/web/setup#available-libraries
+
 			// Your web app's Firebase configuration
 			// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 			var firebaseConfig = {
@@ -390,15 +392,21 @@
 				measurementId: "G-T9Q28FSRDN"
 			};
 			// Initialize Firebase
-			firebase.initializeApp(firebaseConfig);
-			firebase.analytics();
-			firebase.auth().onAuthStateChanged(function(user) {
+			const app=initializeApp(firebaseConfig);
+			const analytics=getAnalytics();
+			const appCheck=initializeAppCheck(app,{
+                provider:new ReCaptchaV3Provider("6Legu2cgAAAAAFrJLOyfVx8ZxzQx584YkeDsB9IN"),
+                isTokenAutoRefreshEnabled:true
+            });
+            const db=getDatabase();
+            const auth=getAuth();
+			onAuthStateChanged(auth,function(user) {
 				if (user) {
 					var email=user.email;
 					var name=user.displayName;
 					var emails=document.querySelectorAll("form input[name='q4_email']");
 					var names=document.querySelectorAll("form input[name='q7_nombreY']");
-					firebase.database().ref("users/"+user.uid).on("value",function(snapshot){
+					onValue(ref(db,"users/"+user.uid),function(snapshot){
 						var telephone=snapshot.val().phone;
 						telephone=decrypt(user.uid,telephone);
 						var telephones=document.querySelectorAll("form input[name='q5_numeroDe[full]']");
