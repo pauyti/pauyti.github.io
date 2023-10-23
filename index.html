@@ -3,10 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="https://pauyti.github.io/favicon.jpg">
+		<link rel="shortcut icon" href="/favicon.jpg">
 		<title>Pauyti</title>
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1571581825193530" crossorigin="anonymous"></script>
+		<!--<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1571581825193530" crossorigin="anonymous"></script>-->
 		<style>
+			*{
+				box-sizing: border-box;
+			}
 			button{
 				cursor:pointer;
 			}
@@ -15,13 +18,12 @@
 			}
 			.partFixed button{
 				background-color:#ededed;
-				border-color:silver;
-				box-shadow:0 3px 3px 0 rgb(0 0 0 / 20%);
+				border: 1px solid silver;
 				width:100px;
 				height:30px;
 			}
 			.partFixed button:hover{
-				box-shadow:1px 1px 5px;
+				box-shadow:1px 1px 5px gray;
 				border:0;
 			}
 			.backgroundFixed{
@@ -36,20 +38,18 @@
 			}
 			.partFixed{
 				position:fixed;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
 				background-color:white;
-				width:560px;
+				width:600px;
 				height:520px;
 				max-height:80vh;
 				z-index:1000;
 				left:calc(50% - 300px);
-				top:5%;
+				top:calc(50% - min(260px, 40vh));
 				padding:20px;
 				overflow:auto;
-			}
-			.partFixedButtons{
-				position:absolute;
-				bottom:25px;
-				width:inherit;
 			}
 			.rightTitle{
 				color:white;
@@ -62,11 +62,8 @@
 			@media (max-width:600px){
 				.partFixed{
 					width:90%;
-					left:calc(5% - 10px);
+					left:5%;
 					padding:10px;
-				}
-				.partFixedButtons{
-					width:calc(100% - 20px);
 				}
 				iframe.instagram-media{
 					min-width:200px !important;
@@ -76,7 +73,7 @@
 	</head>
 	<body style="margin:0;">
 		<div style="height:100vh;">
-			<div style="height:100%;background-position:center center;background-size:cover;border:1px solid black;background-image:url('https://pauyti.github.io/img_div_main.jpg');">
+			<div style="height:100%;background-position:center center;background-size:cover;background-image:url('https://pauyti.github.io/img_div_main.jpg');">
 				<div style="float:right;">
 					<div style="float:right;width:15px;"></div>
 					<h1 class="rightTitle">Pauyti</h1>
@@ -104,13 +101,13 @@
 		<div id="cookiesAlert" style="display:none;">
 			<div class="backgroundFixed"></div>
 			<div class="partFixed">
-				<div style="margin:auto;">
+				<div>
 					<h2>Este sitio web utiliza cookies</h2>
-				</div>
-				<div style="font-size:20px;">
-					Las cookies son necesarias para el correcto funcionamiento
-					deste sitio web.<br><br>
-					<a href="https://pauyti.github.io/politica_cookies.html">Política de cookies</a>
+					<p style="font-size:20px;">
+						Las cookies son necesarias para el correcto funcionamiento
+						deste sitio web.<br><br>
+						<a href="/politica_cookies.html">Política de cookies</a>
+					</p>
 				</div>
 				<div class="partFixedButtons">
 					<button type="button" style="width:100%;height:40px;margin-bottom:10px;" onclick="acceptCookies();">Aceptar todas</button>
@@ -149,15 +146,15 @@
 				var response=xhr.response;
 				menu.innerHTML=response;
 			};
-			xhr.open("GET","https://pauyti.github.io/menu.txt",true);
+			xhr.open("GET","/menu.txt",true);
 			xhr.send();
 			var url="https://shivaistic-tourniqu.000webhostapp.com/api2/index.php";
 			fetch(url,{'mode':'no-cors'});
 		</script>
 		<script type="module">
-			// Import the functions you need from the SDKs you need
+			/* // Import the functions you need from the SDKs you need
 			import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-			import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
+			//import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
 			import { getDatabase,ref,onValue } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
 			import { initializeAppCheck,ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app-check.js";
 			// TODO: Add SDKs for Firebase products that you want to use
@@ -177,7 +174,7 @@
 			};
 			// Initialize Firebase
 			const app=initializeApp(firebaseConfig);
-			const analytics=getAnalytics();
+			//const analytics=getAnalytics();
 			const appCheck=initializeAppCheck(app,{
                 provider:new ReCaptchaV3Provider("6Legu2cgAAAAAFrJLOyfVx8ZxzQx584YkeDsB9IN"),
                 isTokenAutoRefreshEnabled:true
@@ -193,7 +190,7 @@
                         document.location.reload();
                     }
                 }
-            });
+            }); */
 		</script>
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6069ec58c4d9d357"></script>
