@@ -1,8 +1,8 @@
 <div class="btns_menu">
-	<div style="margin:auto;">
-		<button type="button" onclick="document.location.href='https://pauyti.github.io';">Inicio</button>
-		<button type="button" onclick="document.location.href='https://pauyti.github.io/comprar.html';">Comprar</button>
-		<button type="button" onclick="document.location.href='https://pauyti.github.io/contacto.html';">Contacto</button>
+	<div class="nav">
+		<a href="/"><button type="button">Inicio</button></a>
+		<a href="/comprar.html"><button type="button">Comprar</button></a>
+		<a href="/contacto.html"><button type="button">Contacto</button></a>
 	</div>
 	<div style="float:right;">
 		<button type="button" style="border:0px;display:none;" onclick="document.location.href='https://pauyti.github.io/login.html';">Iniciar sesión</button>
@@ -10,21 +10,26 @@
 </div>
 <div style="height:30px;"></div>
 <style type="text/css">
+	.nav{
+		display: flex;
+		justify-content: center;
+		gap: 5px;
+		height: 40px;
+	}
 	.btns_menu button{
 		width:140px;
-		max-width:30%;
-		height:40px;
+		height:100%;
 		background-color:transparent;
 		font-size:20px;
-		border-color:black;
+		border: 1px solid gray;
 		color:black;
-	}
-	.btns_menu{
-		margin:auto;
-		text-align:center;
+		transition: 0.3s all;
 	}
 	.btns_menu button:hover{
-		background-color:black;
+		background-color:gray;
 		color:white;
+	}
+	.btns_menu a{
+		max-width: 33%;
 	}
 </style>
