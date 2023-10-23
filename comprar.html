@@ -5,8 +5,10 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<link rel="shortcut icon" href="https://pauyti.github.io/favicon.jpg">
 		<title>Pauyti</title>
-		<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1571581825193530" crossorigin="anonymous"></script>
 		<style>
+			*{
+				box-sizing: border-box;
+			}
 			button{
 				cursor:pointer;
 			}
@@ -15,6 +17,8 @@
 			}
 			#ventas{
 				margin:8px;
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
 			}
 			#ventas img{
 				cursor:pointer;
@@ -22,21 +26,19 @@
 			#main2{
 				margin:auto;
 				display:none;
-				padding:10px;
-				width:600px;
+				width:550px;
 				max-width:100%;
+				padding: 20px;
 			}
 			.form input{
-				width:400px;
-				max-width:90%;
-				height:30px;
+				width: 90%;
+				height:45px;
 				padding:10px;
 				border:1px solid gray;
 			}
 			.form textarea{
-				width:400px;
-				max-width:90%;
-				height:70px;
+				width:90%;
+				height:80px;
 				border:1px solid gray;
 				padding:10px;
 				resize:none;
@@ -54,15 +56,21 @@
 				background-color:black;
 				color:white;
 			}
-			.form div{
-				height:100px;
-			}
-			
 			.form{
 				border:2px solid #dedede;
+				padding: 20px;
 				margin:auto;
-				width:596px;
+				width: 100%;
 				max-width:90vw;
+				display: flex;
+				flex-direction: column;
+				gap: 15px;
+			}
+			#searchForm{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				gap: 5px;
 			}
 			#searchForm button{
 				background-color:white;
@@ -80,7 +88,7 @@
 				width:300px;
 				height:40px;
 				max-width:80%;
-				border:1px solid;
+				border:1px solid gray;
 				transition:0.5s;
 			}
 			#searchForm input:focus{
@@ -102,9 +110,8 @@
 				font-size:20px;
 			}
 			.divImg{
-				display:inline-block;
 				border:1px solid #dedede;
-				width:calc(25% - 2px);
+				aspect-ratio: 1;
 				position:relative;
 			}
 			.divImgButton{
@@ -117,7 +124,6 @@
 			}
 			@media (max-width:600px){
 				.divImg{
-					width:100%;
 					border:0;
 				}
 				#main2{
@@ -166,12 +172,9 @@
 			<div style="height:50px;"></div>
 		</div>
 		<div id="main2">
-			<div style="width:600px;max-width:100vw;height:600px;max-height:100vw;position:absolute;"></div>
-			<img style="width:600px;max-width:100%;" id="img_main2">
+			<img style="width:100%;max-width:100%;pointer-events:none;" id="img_main2">
 			<form class="form" name="submit-form" id="form1" style="text-align:center;">
-				<div style="height:20px;"></div>
 				<h1>Comprar</h1>
-				<div style="height:20px;"></div>
 				<input type="hidden" name="formID" value="210954453517053">
 				<input type="hidden" id="JWTContainer" value="">
 				<input type="hidden" id="cardinalOrderNumber" value="">
@@ -197,9 +200,7 @@
 				<input type="hidden" name="event_id" value="1617724352942_210954453517053_xgUtTpd">
 			</form>
 			<form class="form" name="submit2-form2" id="form2" style="display:none;text-align:center">
-				<div style="height:20px;"></div>
 				<h1>Solicitar</h1>
-				<div style="height:20px;"></div>
 				<input type="hidden" name="formID" value="210974579330360">
 				<input type="hidden" id="JWTContainer" value="">
 				<input type="hidden" id="cardinalOrderNumber" value="">
@@ -303,7 +304,7 @@
 				for (var id in data){
 					if (indexs.indexOf(parseInt(id))>=0){
 						var src=data[id]["src"];
-						ventas_div.innerHTML="<div class='divImg' onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"'><div class='divImgButton'></div><img width='100%' id='"+id+"' src='"+src+"'></div>"+ventas_div.innerHTML;
+						ventas_div.innerHTML="<div class='divImg' onclick='document.location.href=document.location.href.split(\"?\")[0]+\"?id=\"+"+id+"'><div class='divImgButton'></div><img width='100%' id='"+id+"' loading='lazy' src='"+src+"'></div>"+ventas_div.innerHTML;
 					}
 				}
 				var imgs_ventas=document.querySelectorAll("#ventas img");
@@ -370,9 +371,9 @@
 			});
 		</script>
 		<script type="module">
-			// Import the functions you need from the SDKs you need
+			/* // Import the functions you need from the SDKs you need
 			import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app.js";
-			import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
+			//import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-analytics.js";
 			import { getDatabase,ref,onValue } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-database.js";
 			import { getAuth,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-auth.js";
 			import { initializeAppCheck,ReCaptchaV3Provider } from "https://www.gstatic.com/firebasejs/9.6.11/firebase-app-check.js";
@@ -393,7 +394,7 @@
 			};
 			// Initialize Firebase
 			const app=initializeApp(firebaseConfig);
-			const analytics=getAnalytics();
+			//const analytics=getAnalytics();
 			const appCheck=initializeAppCheck(app,{
                 provider:new ReCaptchaV3Provider("6Legu2cgAAAAAFrJLOyfVx8ZxzQx584YkeDsB9IN"),
                 isTokenAutoRefreshEnabled:true
@@ -424,7 +425,7 @@
 				else {
 					// No user is signed in.
 				}
-			});
+			}); */
 		</script>
 		<!-- Go to www.addthis.com/dashboard to customize your tools -->
 		<script type="text/javascript" src="https://s7.addthis.com/js/300/addthis_widget.js#pubid=ra-6069ec58c4d9d357"></script>
