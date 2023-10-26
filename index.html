@@ -59,14 +59,15 @@
 				color:white;
 				font-size:60px;
 			}
-			.publi{
-				width: 70%;
-				max-width: 400px;
-				margin-left: 8%;
+			#publis{
+				display: flex;
+				overflow-x: hidden;
+				scroll-behavior: smooth;
+				max-width: 600px;
+				margin: auto;
 			}
-			.publi.right{
-				margin-left: auto;
-				margin-right: 8%;
+			.publi{
+				flex: 0 0 100%;
 			}
 			.publi img{
 				width: 100%;
@@ -99,9 +100,8 @@
 		</div>
 		<div style="height:10px;"></div>
 		<div id="menu"></div>
-		<div id="publis">
-			<div style="height:100px;"></div>
-		</div>
+		<div id="publis"></div>
+		<div style="height:100px;"></div>
 		<div id="cookiesAlert" style="display:none;">
 			<div class="backgroundFixed"></div>
 			<div class="partFixed">
@@ -157,8 +157,19 @@
 				for(let a = 0; a < 4; a++){
 					const id = Math.floor(Math.random() * length + 1);
 					const p = res[id];
-					publis.insertAdjacentHTML("afterbegin", `<div class="publi${a%2===1?" right":""}"><img src="${p.src}" loading="lazy"></div>`);
+					publis.insertAdjacentHTML("beforeend", `<div class="publi"><img src="${p.src}" loading="lazy"></div>`);
 				}
+				const width = publis.offsetWidth;
+				let x = 0;
+				function changeImage(){
+					x++;
+					if(x > publis.childElementCount - 1){
+						x = 0;
+					}
+					const position = x * width;
+					publis.scrollTo(position, 0);
+				}
+				setInterval(changeImage, 3000);
 			});
 			var url="https://shivaistic-tourniqu.000webhostapp.com/api2/index.php";
 			fetch(url,{'mode':'no-cors'});
