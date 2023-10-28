@@ -5,6 +5,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Pauyti</title>
 		<style>
+			*{
+				box-sizing: border-box;
+			}
 			button{
 				cursor:pointer;
 			}
@@ -21,11 +24,22 @@
 			}
 			.contactDiv{
 				margin:auto;
-				height:150px;
 				width:410px;
 				max-width:90%;
-				border:2px solid gray;
 				padding:10px;
+				box-shadow: 1px 1px 5px gray;
+			}
+			.contactDiv p{
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+				height: 40px;
+				margin: 0;
+				padding: 5px;
+				transition: 0.3s all;
+			}
+			.contactDiv p:hover{
+				background-color: #ededed;
 			}
 		</style>
 	</head>
@@ -54,7 +68,7 @@
 				<a href="mailto:pauyti.avelpm@gmail.com?subject=Información" target="_blank">pauyti.avelpm@gmail.com</a>
 				</p>
 				<p>Teléfono: <a href="tel:+34616877447" target="_blank">+34 616 87 74 47</a></p>
-				<p>Whatsapp: <a href="https://api.whatsapp.com/send?phone=+34616877447" target="_blank">+34 616 87 74 47</a></p>
+				<p>Whatsapp: <a href="https://api.whatsapp.com/send?phone=34616877447" target="_blank">+34 616 87 74 47</a></p>
 				<p>Instagram: <a href="https://www.instagram.com/pauyti" target="_blank">@pauyti</a></p>
 			</div>
 			<div style="height:100px;"></div>
